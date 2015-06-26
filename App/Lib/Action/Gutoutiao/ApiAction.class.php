@@ -71,6 +71,7 @@ class ApiAction extends Action {
 	        $content_url = '/root/code/'.$content_url;
 	        print $content_url;
 	        $content = file_get_contents($content_url);
+	        print $content;
 	        // $content = 'kjkj';
 	    	$content = "<title>".$title."</title><content>".$content."</content>";
 	    	echo $content;
