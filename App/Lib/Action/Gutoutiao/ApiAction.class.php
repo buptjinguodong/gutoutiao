@@ -53,14 +53,25 @@ class ApiAction extends Action {
         $news = $article->where($_where)->select();
         $res = array();	
         if(count($news) == 0){
-        	// p($news);
+        	p($news);
         	echo '';
         }else{
-        	$title = $news['title'];
+        	p($news);
+        	$news = $news[0];
+        	$gushijujiao = M('gushijujiao');
+        	$menu = $gushijujiao->where($_where)->select();
+        	if(count($menu)!=0){
+        		$title = $menu[0]['title'];
+        	}else{
+        		$title = $news['title'];	
+        	}
 	        $review = $news['review'];
 	        $content_url = $news['content'];
+	        // print $content_url;
 	        $content_url = '/root/'.$content_url;
+	        // print $content_url;
 	        $content = file_get_contents($content_url);
+	        // $content = 'kjkj';
 	    	$content = "<title>".$title."</title><content>".$content."</content>";
 	    	echo $content;
         }
