@@ -1,30 +1,46 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
-class IndexAction extends Action {
+class ApiAction extends Action {
 
     public function index()
     {
-        $this->display('index');
+        echo 'api index';
     }
 
     public function get_latest_news()
     {
-    	// 最新的十条新闻
-    	$count = 10;
-    	$page = 1;
-    	$cat = $_GET('cat')?$_GET('cat'):0;
-    	$_t = $_GET('_t');
+        $cat = I('get.cat');
+        $_t = I('get._t');
+        // echo 'cat: '.$cat.'<br/>';
+        // echo '_t: '.$_t;
 
-    	// 返回数据格式
-    	$res = {
-    		'public_time' => 'fetch_time',
-    		'title' => 'title',
-    		'url' => 'url',
-    		'type' => 'type', // 内容
-    		'source' => 'source', // 内容
-    		'content_url' => 'article_id', // 指向 本地域名 下对应的文章内容
-    	}
+        $gushijujiao = M('gushijujiao');
+        if($cat!='0'){
+            $_where = 'time_stamp > '.$_t.' and type='.$cat;
+        }else{
+            $_where = 'time_stamp > '.$_t;
+        }
+        // echo $_where;
+        $news = $gushijujiao->where($_where)->order('time_stamp desc')->limit(10)->select(); 
+
+        // p($news);
+        $news_json = json_encode($news);
+        // echo $news_json;
+        $res = array();
+        foreach ($news as $new){
+        	// p($new);
+        	array_push($res, array('public_time' => $new['time_stamp'],
+        		'title' => $new['title'],
+        		'url' => $new['url'],
+        		'type' => $new['type'],
+        		'source' => $new['source'],
+        		'content_url' => U('Gutoutiao/Api/get_article').'?article_url='.$new['url']
+        		)
+        	);
+        }
+        echo json_encode($res);
     }
+
 
     public function get_article()
     {
@@ -32,7 +48,7 @@ class IndexAction extends Action {
     	
     	$content = "
     	<title></title>
-
+    	<
     	";
 
     }
