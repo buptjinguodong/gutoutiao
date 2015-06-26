@@ -35,6 +35,7 @@ class ApiAction extends Action {
         		'type' => $new['type'],
         		'source' => $new['source'],
         		'review' => 'review',
+        		'img_url' => '',
         		'content_url' => U('Gutoutiao/Api/get_article').'?article_url='.$new['url']
         		)
         	);
@@ -45,12 +46,23 @@ class ApiAction extends Action {
 
     public function get_article()
     {
-    	$article_id = $_GET('id');
-    	
-    	$content = "
-    	<title></title>
-    	<
-    	";
-
+    	$article_id = I('get.article_url');
+    	$article = M('article');
+        $_where = "url = '".$article_id."'";
+        // echo $_where;
+        $news = $article->where($_where)->select();
+        $res = array();	
+        if(count($news) == 0){
+        	// p($news);
+        	echo '';
+        }else{
+        	$title = $news['title'];
+	        $review = $news['review'];
+	        $content_url = $news['content'];
+	        $content_url = '/root/'.$content_url;
+	        $content = file_get_contents($content_url);
+	    	$content = "<title>".$title."</title><content>".$content."</content>";
+	    	echo $content;
+        }
     }
 }
