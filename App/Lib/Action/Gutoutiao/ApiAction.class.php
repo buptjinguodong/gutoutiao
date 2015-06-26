@@ -68,7 +68,7 @@ class ApiAction extends Action {
 	        $review = $news['review'];
 	        $content_url = $news['content'];
 	        // print $content_url;
-	        $content_url = U('Public').$content_url;
+	        $content_url = '/root/code/'.$content_url;
 	        print $content_url;
 	        // $content = file_get_contents($content_url);
 	        // $content = file_get_contents("/root/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html");
