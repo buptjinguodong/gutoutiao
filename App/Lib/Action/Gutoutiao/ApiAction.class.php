@@ -29,11 +29,12 @@ class ApiAction extends Action {
         $res = array();
         foreach ($news as $new){
         	// p($new);
-        	array_push($res, array('public_time' => $new['time_stamp'],
+        	array_push($res, array('publish_time' => $new['time_stamp'],
         		'title' => $new['title'],
         		'url' => $new['url'],
         		'type' => $new['type'],
         		'source' => $new['source'],
+        		'review' => 'review',
         		'content_url' => U('Gutoutiao/Api/get_article').'?article_url='.$new['url']
         		)
         	);
@@ -52,5 +53,4 @@ class ApiAction extends Action {
     	";
 
     }
-
 }
