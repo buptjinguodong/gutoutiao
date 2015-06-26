@@ -68,8 +68,8 @@ class ApiAction extends Action {
 	        $review = $news['review'];
 	        $content_url = $news['content'];
 	        // print $content_url;
-	        $content_url = '/root/'.$content_url;
-	        // print $content_url;
+	        $content_url = '/root/code/'.$content_url;
+	        print $content_url;
 	        $content = file_get_contents($content_url);
 	        // $content = 'kjkj';
 	    	$content = "<title>".$title."</title><content>".$content."</content>";
