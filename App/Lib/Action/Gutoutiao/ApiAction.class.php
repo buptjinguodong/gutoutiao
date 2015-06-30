@@ -1,6 +1,6 @@
 <?php
 // 本类由系统自动生成，仅供测试用途
-class ApiAction extends Action {
+class ApiAction extends Action{
 
     public function index()
     {
@@ -46,6 +46,8 @@ class ApiAction extends Action {
 
     public function get_article()
     {
+	//$content = file($content_url);
+	        //p($content);
     	$article_id = I('get.article_url');
     	$article = M('article');
         $_where = "url = '".$article_id."'";
@@ -68,15 +70,22 @@ class ApiAction extends Action {
 	        $review = $news['review'];
 	        $content_url = $news['content'];
 	        // print $content_url;
-	        $content_url = '/root/code/'.$content_url;
+	        $content_url = '/var/code/'.$content_url;
 	        print $content_url;
 	        // $content = file_get_contents($content_url);
-	        // $content = file_get_contents("/root/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html");
-			$content = file($content_url);
-	        p($content);
+		$url_con = "/var/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html";
+//	         $content = file_get_contents("/root/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html");
+		$content = file_get_contents($url_con);	
+	//$content = file($content_url);
+	        //p($content);
+		var_dump($content, $url_con);
+		die();
 	        // $content = 'kjkj';
 	    	$content = "<title>".$title."</title><content>".$content."</content>";
 	    	echo $content;
         }
     }
 }
+
+
+
