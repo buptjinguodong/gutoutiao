@@ -46,19 +46,14 @@ class ApiAction extends Action{
 
     public function get_article()
     {
-	//$content = file($content_url);
-	        //p($content);
     	$article_id = I('get.article_url');
     	$article = M('article');
         $_where = "url = '".$article_id."'";
-        // echo $_where;
         $news = $article->where($_where)->select();
         $res = array();	
         if(count($news) == 0){
-        	p($news);
         	echo '';
         }else{
-        	p($news);
         	$news = $news[0];
         	$gushijujiao = M('gushijujiao');
         	$menu = $gushijujiao->where($_where)->select();
@@ -69,19 +64,9 @@ class ApiAction extends Action{
         	}
 	        $review = $news['review'];
 	        $content_url = $news['content'];
-	        // print $content_url;
 	        $content_url = '/var/code/'.$content_url;
-	        print $content_url;
-	        // $content = file_get_contents($content_url);
-		$url_con = "/var/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html";
-//	         $content = file_get_contents("/root/code/./gutoutiao/gushijujiao/yaowen/http://stock.eastmoney.com/news/1449,20150626520928153.html");
-		$content = file_get_contents($url_con);	
-	//$content = file($content_url);
-	        //p($content);
-		var_dump($content, $url_con);
-		die();
-	        // $content = 'kjkj';
-	    	$content = "<title>".$title."</title><content>".$content."</content>";
+	        $content = file_get_contents($content_url);
+        	$content = "<title>".$title."</title><content>".$content."</content>";
 	    	echo $content;
         }
     }
