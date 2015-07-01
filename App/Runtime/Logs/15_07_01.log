@@ -1,0 +1,6 @@
+[ 2015-07-01T14:36:22+08:00 ] 0.0.0.0 /gutoutiao/index.php/Index/Index/login.html
+ERR: 模板不存在[./App/Tpl/Index/Index/login.html]
+
+[ 2015-07-01T14:36:26+08:00 ] 0.0.0.0 /gutoutiao/index.php/Index/Index/index.html
+ERR: 模板不存在[./App/Tpl/Index/Index/login.html]
+

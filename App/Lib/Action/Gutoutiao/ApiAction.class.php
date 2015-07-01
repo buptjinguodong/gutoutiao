@@ -29,11 +29,17 @@ class ApiAction extends Action{
         $res = array();
         foreach ($news as $new){
         	// p($new);
+            $source = $new['source'];
+            if($source==1){
+                $source = '东方财富网';
+            }else{
+                $source = '雪球网';
+            }
         	array_push($res, array('publish_time' => $new['time_stamp'],
         		'title' => $new['title'],
         		'url' => $new['url'],
         		'type' => $new['type'],
-        		'source' => $new['source'],
+        		'source' => $source,
         		'review' => 'review',
         		'img_url' => '',
         		'content_url' => U('Gutoutiao/Api/get_article').'?article_url='.$new['url']

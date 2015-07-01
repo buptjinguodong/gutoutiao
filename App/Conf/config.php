@@ -5,7 +5,7 @@ return array(
     'URL_HTML_SUFFIX'=>'.html',
 
 	// 设置分组目录结构
-	"APP_GROUP_LIST" => "Index,Admin,Gutoutiao",
+	"APP_GROUP_LIST" => "Index,Admin,Gutoutiao,Jianguji",
 	"DEFAULT_GROUP" => "Gutoutiao",
 	// 设置文件链接符，减少Tpl路径深度，用起来容易出问题，考虑少用。
 	// "TMPL_FILE_DEPR" => '_',
