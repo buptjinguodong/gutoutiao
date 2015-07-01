@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" href="__PUBLIC__/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="__PUBLIC__/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/css/jianguji.css">
 
     <script type="text/javascript">
         base_url = "__APP__";
@@ -40,8 +41,8 @@
                 <li class="<?php if($tag == 'entertainment'){ echo 'active'; }?>">
                     <a href="<?php echo U('Jianguji/Index/entertainment');?>">新闻</a>
                 </li>
-                <li class="<?php if($tag == 'crew'){ echo 'active'; }?>">
-                    <a href="<?php echo U('Jianguji/Index/crew');?>">捡股</a>
+                <li class="<?php if($tag == 'jiangu'){ echo 'active'; }?>">
+                    <a href="<?php echo U('Jianguji/Index/jiangu');?>">捡股</a>
                 </li>
                 <li class="<?php if($tag == 'institution'){ echo 'active'; }?>">
                     <a href="<?php echo U('Jianguji/Index/institution');?>">股谱</a>
@@ -93,9 +94,11 @@
     </div>
 </nav>
 <div id="layout-content">
-    
+    对方答复答复
 </div>
 <script type="text/javascript" src="__PUBLIC__/js/jquery.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jianguji.js"></script>
+
 
 </body>
 </html>

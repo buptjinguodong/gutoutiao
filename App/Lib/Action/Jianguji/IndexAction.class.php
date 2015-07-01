@@ -7,4 +7,8 @@ class IndexAction extends Action {
         $this->display('index');
     }
 
+    public function jiangu(){
+    	$this->assign('tag', 'jiangu');
+    	$this->display('jiangu');
+    }
 }
